@@ -1,0 +1,62 @@
+﻿@model IEnumerable<ducstore.Models.product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<link href="~/Content/css/style.css" rel="stylesheet" />
+<div class="main-content" ng-controller="home">
+    <div class="newplace flex col-12 col-s-12" id="thumbnail">
+        <div id="thumbnailimages" class="col-12 col-s-12">
+            <div  ng-repeat="item in newslist track by $index">
+                <a>
+                    <img class='newimage col-12' src="~/Content/anh/{{item.picture}}" alt="">
+                </a>
+
+            </div>            
+        </div>
+        <button class="leftbtn controlbtn" ng-click="slides(-1)"><</button>
+        <button class="rightbtn controlbtn" ng-click="slides(1)">></button>
+    </div>
+    <div class="product">
+        <hr class="border-break">
+        <h3 class="typename col-4">Sản phẩm</h3>
+        <div class='flexwrap col-12' id="">
+            @{ int sp = 0;
+
+                foreach (var item in Model)
+                {
+                    <div class="product-box col-2 col-s-6">
+                        <a href="@Url.Action("Details", "products", new { id = item.productid })">
+                            <img class=pictureproduct col-11 marginauto" src="~/Content/anh/@item.picture" alt="" />
+                            <h5 class="name"><a href="@Url.Action("Details", "products", new { id = item.productid })">@item.productname</a></h5>
+                        </a>
+
+                        @if (item.promotion == 0)
+                        {
+                            <div>
+                                <p>Giá bán: <span class="giaban">@string.Format("{0:###,###,###,000}", item.price) đ</span></p>
+                            </div>
+                        }
+                        else
+                        {
+
+                            <div>
+                                <p>Giá gốc: <del>@string.Format("{0:###,###,###,000}", item.price)</del>đ</p>
+                                <p>Giá khuyến mại: <span class="price">@string.Format("{0:###,###,###,000}", item.promotion) đ</span></p>
+                            </div>
+                        }
+
+                    </div>
+                    sp++;
+                    if (sp == 10)
+                    {
+                        break;
+                    }
+                }
+            }
+        </div>
+
+    </div>
+</div>

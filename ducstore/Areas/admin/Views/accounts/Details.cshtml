@@ -1,0 +1,35 @@
+﻿@model ducstore.Models.account
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/admin/Views/Shared/_adminlayout.cshtml";
+}
+
+
+<div class="form-edit">
+    <div>
+        
+        <dl class="dl-horizontal">
+                    <dt>
+                @Html.DisplayNameFor(model => model.employee.employeename)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.employee.employeename)
+            </dd>
+
+                    <dt>
+                @Html.DisplayNameFor(model => model.password)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.password)
+            </dd>
+
+            </dl>
+    </div>
+    <p style="margin-left: 3rem">
+            @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.username }, new { @class = "btn btn-primary" }) 
+        @Html.ActionLink("Quay lại", "Index", "", new { @class = "btn btn-default" })
+        </p>
+</div>

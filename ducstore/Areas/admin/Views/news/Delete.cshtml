@@ -1,0 +1,65 @@
+﻿@model ducstore.Models.news
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/admin/Views/Shared/_adminlayout.cshtml";
+}
+
+
+<div class="form-delete">
+    <h3>Bạn có chắc chắn xóa?</h3>
+    <div>
+    
+        <dl class="dl-horizontal">
+                    <dt>
+                @Html.DisplayNameFor(model => model.newstittle)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.newstittle)
+            </dd>
+
+                    <dt>
+                @Html.DisplayNameFor(model => model.author)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.author)
+            </dd>
+
+                    <dt>
+                @Html.DisplayNameFor(model => model.picture)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.picture)
+            </dd>
+
+                    <dt>
+                @Html.DisplayNameFor(model => model.content)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.content)
+            </dd>
+
+                    <dt>
+                @Html.DisplayNameFor(model => model.daycreate)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.daycreate)
+            </dd>
+
+            </dl>
+
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                 <input type="submit" value="Xóa" class="btn btn-danger" />
+                @Html.ActionLink("Quay lại", "Index", "", new { @class = "btn btn-default" })
+            </div>
+        }
+    </div>
+</div>

@@ -1,0 +1,113 @@
+﻿@model ducstore.Models.sellbill
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Areas/admin/Views/Shared/_adminlayout.cshtml";
+}
+
+
+<style>
+    .product-Edit {
+        border: 1px solid gray;
+        margin-top: 1rem;
+        padding: 0.6rem;
+    }
+
+    .input-product {
+        display: inline-block;
+        min-width: 70%;
+        margin: 0.2rem;
+    }
+
+    .customer label {
+        min-width: 8.5%;
+    }
+
+    #name, #phonenumber {
+        display: inline-block;
+        min-width: 70%;
+    }
+
+    #address {
+        display: inline-block;
+        min-width: 98%;
+    }
+
+    .label-product {
+        width: 13%;
+    }
+
+    .form-edit {
+        padding: 0.5rem;
+    }
+</style>
+
+<div class="form-edit col-12" ng-controller="SellBills" ng-init="GetDetail('@Model.sellbillid')">
+
+    <table class="table">
+        <thead class="thead-dark">
+            <tr>
+                <th scope="col">Mã sản phẩm</th>
+                <th scope="col">Tên sản phẩm</th>
+                <th scope="col">Số lượng</th>
+                <th scope="col">Giá bán</th>
+                <th scope="col">Thành tiền</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody ng-repeat="item in Details track by $index">
+            <tr>
+                <td>{{item.productid}}</td>
+                <td scope="row">{{item.productname}}</td>
+                <td class="flex">
+                    <button ng-click="ChangeQuantity(item.productid)">-</button>
+                    <input type="number" class="quatity" value="{{item.quantity}}" disabled>
+                    <button ng-click="ChangeQuantity(item.productid, 1)">+</button>
+                </td>
+                <td> {{item.price}} đ</td>
+                <td>{{item.grandpaid| currency:'' :0}}đ</td>
+                <td><button ng-click="DeleteDetail(item.productid)">Xóa</button></td>
+            </tr>
+
+        </tbody>
+        <tr>
+            <td colspan="3"></td>
+            <td>Tổng tiền</td>
+            <td>{{totalpaid| currency:'' :0}}đ</td>
+        </tr>
+    </table>
+
+    <div class="">
+        <h1>Thêm sản phẩm</h1>
+        <div class="form-group">
+            <label class="label-product">Mã sản phẩm: </label>
+            <input type="text" list="productid" ng-model="productid" class="input-product" ng-change="LogName()">           
+        </div>
+        <div class="form-group">
+            <label class="label-product">Tên sản phẩm: </label>
+            <input type="text" ng-model="productname" class="input-product" disabled>
+
+        </div>
+        <div class="form-group">
+            <label class="label-product">Đơn giá:</label>
+            <input type="number" ng-model="price" disabled />
+        </div>
+
+        <div class="form-group">
+            <label class="label-product">Số lượng còn:</label>
+            <input type="number" ng-model="remainingquantity" disabled />
+        </div>
+        <div class="form-group">
+            <label class="label-product">Số lượng mua:</label>
+            <input type="number" ng-model="quantity" />
+        </div>
+        <div class="form-group">
+
+            <button class="btn btn-primary" ng-click="AddBillDetails()">Thêm</button>
+            <button class="btn btn-primary" ng-click="SaveChange()">Lưu hóa đơn</button>
+        </div>
+
+    </div>
+
+</div>
+<script src="~/Content/js/sellbill.js"></script>

@@ -1,0 +1,50 @@
+﻿@model IPagedList<ducstore.Models.product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";}
+@using PagedList;
+@using PagedList.Mvc;
+
+<style>
+    .main-content{
+        margin-top: 0.5rem;
+    }
+    .categoryname {
+        background-color: cadetblue;
+        Color: white;
+        text-align:center;
+        margin-top: 0;
+        margin-bottom: 1rem;
+    };
+</style>
+<div class="main-content flex" ng-controller="product">
+    <div class="type col-2">
+        <h3 class="categoryname" >Danh mục </h3>
+        <div class="type-item">
+            <a class="type-btn" ng-click="FilterRemove()">Tất cả</a>
+        </div>
+        <div class="type-item" ng-repeat="item in types track by $index">
+            <a class="type-btn" ng-click="Filter(item.typeproductid)">{{item.typeproductname}}</a>
+        </div>
+
+    </div>
+    <div class="product col-10">
+        
+        <div class='flexwrap col-12' id="">
+            <div class="product-box col-3 col-s-6" ng-repeat="item in showproduct track by $index">
+                <a href="@Url.Action("Details",  "products")/{{item.productid}}">
+                    <img class="pictureproduct col-11 marginauto" src="~/Content/anh/{{item.picture}}" alt="" />
+                    <h5 class="name">{{item.productname}}</h5>
+                </a>
+                <span class="price" ng-show="item.promotion ==0"> {{item.price|currency:"":0}}</span>
+                <div ng-show="item.promotion >0">
+                    <p><del>{{item.price|currency:"":0}}</del></p>
+                    <p>{{item.promotion|currency:"":0}}</p>
+                </div>
+            </div>  
+        </div>
+
+    </div>
+    
+</div>    

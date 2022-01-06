@@ -1,0 +1,43 @@
+﻿@model ducstore.Models.customer
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/admin/Views/Shared/_adminlayout.cshtml";
+}
+
+
+<div class="form-edit">
+    <div>
+        
+        <dl class="dl-horizontal">
+                        <dt>
+                @Html.DisplayNameFor(model => model.phonenumber)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.phonenumber)
+            </dd>
+
+                    <dt>
+                @Html.DisplayNameFor(model => model.customername)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.customername)
+            </dd>
+
+                    <dt>
+                @Html.DisplayNameFor(model => model.address)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.address)
+            </dd>
+
+            </dl>
+    </div>
+    <p style="margin-left: 3rem">
+            @Html.ActionLink("Chỉnh sửa", "Edit", new { id = Model.customerid }, new { @class = "btn btn-primary" }) 
+        @Html.ActionLink("Quay lại", "Index", "", new { @class = "btn btn-default" })
+        </p>
+</div>

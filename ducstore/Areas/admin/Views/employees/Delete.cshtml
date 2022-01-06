@@ -1,0 +1,73 @@
+﻿@model ducstore.Models.employee
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/admin/Views/Shared/_adminlayout.cshtml";
+}
+
+
+<div class="form-delete">
+    <h3>Bạn có chắc chắn xóa?</h3>
+    <div>
+    
+        <dl class="dl-horizontal">
+                            <dt>
+                @Html.DisplayNameFor(model => model.employeename)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.employeename)
+            </dd>
+
+                    <dt>
+                @Html.DisplayNameFor(model => model.phonenumber)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.phonenumber)
+            </dd>
+
+                    <dt>
+                @Html.DisplayNameFor(model => model.birthday)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.birthday)
+            </dd>
+
+                    <dt>
+                @Html.DisplayNameFor(model => model.address)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.address)
+            </dd>
+
+                    <dt>
+                @Html.DisplayNameFor(model => model.email)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.email)
+            </dd>
+
+                    <dt>
+                @Html.DisplayNameFor(model => model.identitycardnumber)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.identitycardnumber)
+            </dd>
+
+            </dl>
+
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                 <input type="submit" value="Xóa" class="btn btn-danger" />
+                @Html.ActionLink("Quay lại", "Index", "", new { @class = "btn btn-default" })
+            </div>
+        }
+    </div>
+</div>

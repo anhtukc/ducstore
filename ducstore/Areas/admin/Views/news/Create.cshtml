@@ -1,0 +1,61 @@
+﻿@model ducstore.Models.news
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/admin/Views/Shared/_adminlayout.cshtml";
+}
+
+
+<div class="form-create">
+    @using (Html.BeginForm("Create", "news", FormMethod.Post, new { enctype = "multipart/form-data" })) 
+    {
+        @Html.AntiForgeryToken()
+        
+        <div class="form-horizontal">
+            
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                    @Html.LabelFor(model => model.newstittle, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.newstittle, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.newstittle, "", new { @class = "text-danger" })
+                        </div>
+            </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.author, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.author, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.author, "", new { @class = "text-danger" })
+                        </div>
+            </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.picture, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        <input type="file" name="picture" />
+                        @Html.ValidationMessageFor(model => model.picture, "", new { @class = "text-danger" })
+                    </div>
+            </div>
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.content, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.content, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.content, "", new { @class = "text-danger" })
+                        </div>
+            </div>
+
+                
+
+                <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Tạo" class="btn btn-primary" />
+                    @Html.ActionLink("Quay lại", "Index", "", new {@class = "btn btn-default" })
+                </div>
+            </div>
+        </div>
+    }
+
+    
+</div>

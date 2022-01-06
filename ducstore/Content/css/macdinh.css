@@ -1,0 +1,363 @@
+*{
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 10px;
+}
+body{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 16px;
+    background-color: rgb(243, 243, 243);
+}
+a{
+    text-decoration: none;
+    color: black;
+    cursor:pointer;
+}
+img{
+    max-width: 100%;
+    cursor: pointer;
+}
+
+del{
+    color: gray;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+}
+
+input[type=number]{
+    -moz-appearance: textfield;
+}
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+.flex{
+    display: flex;
+}
+.flexwrap{
+    display: inline-flex;
+    flex-wrap: wrap;
+}
+.marginauto{
+    margin: auto;
+}
+
+.none{
+    display: none;
+}
+.block{
+    display: block;
+}
+
+.inlineblock{
+    display: inline-block;
+}
+
+.header{
+    padding: 0.5rem 0;
+    background-color: white;
+}
+nav{
+    width: 95%;
+    margin:0 auto;
+}
+
+
+nav a{
+    line-height: 6rem;
+    font-size: 1.6rem;
+    height: 100%;
+}
+
+
+button{
+    cursor: pointer;
+}
+.fa-remove:before, .fa-close:before, .fa-times:before ,.fa-search:before, #momenu, #closecatalog{
+   display: none;
+}
+.header{
+    border-bottom: 1px rgb(148, 148, 148) solid;
+}
+
+.catalog{
+    line-height: 6rem;
+    font-size: 1.8rem;
+    
+}
+.type{
+    border: 1px solid gray;
+    padding-left: 0.2rem;
+}
+#danhmuc, .danhsachlinhkien {
+    z-index: 10;
+}
+.danhsachlinhkien a{
+    line-height: 2;
+    font-size: 1.6rem;
+    display: block;
+    min-width: 15%;
+}
+.danhsachlinhkien a:hover{
+    background-color: yellow;
+}
+.danhmucduocchon{
+    background-color: yellow;
+}
+.linhkien, #maycay{
+    padding: 0.5rem 2rem;
+    position: relative;
+}
+.linhkien:hover .danhsachlinhkien, .danhsachlinhkien:hover{
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    position: absolute;
+    display: flex;
+    line-height: 0.3;
+    gap: 0.1rem;
+    left: 20rem;
+    top: 0;
+    padding: 0.5rem 2rem;
+    width: 150%;
+    box-shadow:  0.3rem 0.3rem rgb(214, 213, 213), -0.3rem -0.3rem rgb(224, 224, 224);
+}
+.danhsachlinhkien{
+    border: 1px solid black;
+    background-color: rgb(228, 228, 228);
+    
+}
+.product-box{
+    border: 1px solid black;
+    padding: 0.5rem;
+    position: relative;
+}
+.border-break {
+    background-color: rgb(15, 73, 180);
+    padding: 0.1rem;
+    margin-bottom: 0;
+}
+.typename {
+    padding: 0.1rem;
+    background-color: rgb(15, 73, 180);
+    color: white;
+    margin-top: 0;
+    text-align: center;
+}
+.pictureproduct{
+    max-height: 20rem;
+}
+.price {
+    color: red;
+    font-size: 1.8rem;
+}
+.sale{
+    position: absolute;
+    top: 1rem;
+    right: 1.4rem;
+    padding: 1rem 0.5rem;
+    font-size: 1.2rem;
+    border-radius: 50%;
+    background-color: rgb(219, 10, 10);
+    color: white;
+}
+.product{
+    background-color: white;
+}
+.tranglinhkien{
+    background-color: white;
+    border: 1px solid rgb(226, 226, 226);
+    padding: 1rem;
+    text-align: center;
+    font-size: 1.8rem;
+}
+.xemtatca{
+    color: rgb(60, 199, 204);
+}
+.xemtatca:hover{
+    color: rgb(45, 133, 136);
+}
+
+.thietkedanhmuc{
+    display: none;
+}
+.thietkedanhmucactive{
+    display: block;
+    position: absolute;
+    top: 6rem;
+    background-color: white;
+    border: 1px solid black;
+ 
+}
+
+
+.logo{
+   width: 15rem;
+   height: 6rem;
+}
+
+.list:hover .laptop-list, .laptop-list:hover{
+    display: flex;
+    transition: all 0.3s ease-in-out;
+}
+
+.hiddennav{
+    margin-left: 5rem;
+}
+#dangnhap{
+    top: 0;
+    position: absolute;
+    left:90%;
+    height: 6rem;
+}
+
+#tintuc{
+    position: absolute;
+    left: 80%;
+    height: 6rem;
+}
+
+.thietkevungtimkiem{
+    padding-top:1.2rem;
+}
+.thietkevungtimkiem img{
+    width: 3rem;
+    height: 3rem;
+}
+.thietkevungtimkiem input{
+    width: 65%;
+    height: 4rem;
+    border-radius: 5px 0 0 5px;
+    padding: 0 3rem;
+    font-size: 1.8rem;
+    border: 1px solid rgb(207, 204, 204);
+}
+.thietkevungtimkiem button{ 
+    height: 4rem;
+    border-radius: 0 5px 5px 0;
+    position: relative;
+    background-color: white;
+    border: 1px solid rgb(207, 204, 204);
+}
+.vunggiohang{
+    line-height: 0.2;
+}
+.giohang{
+    line-height: 0;
+    margin-left: 5rem;
+    background-color: white;
+    border:1px gray solid;
+    height: 4rem;
+    margin-top: 1rem;
+}
+
+
+
+.type-item{
+    padding-left: 0.2rem;
+    color: black;
+
+}
+@media screen and (max-width: 768px) {
+    .col-s-1 {width: 8.33%;}
+    .col-s-2 {width: 16.66%;}
+    .col-s-3 {width: 25%;}
+    .col-s-4 {width: 33.33%;}
+    .col-s-5 {width: 41.66%;}
+    .col-s-6 {width: 50%;}
+    .col-s-7 {width: 58.33%;}
+    .col-s-8 {width: 66.66%;}
+    .col-s-9 {width: 75%;}
+    .col-s-10 {width: 83.33%;}
+    .col-s-11 {width: 91.66%;}
+    .col-s-12 {width: 100%;}
+    
+    .navbar{
+        justify-content: space-between;
+    }
+    .fa-remove:before, .fa-close:before, .fa-times:before ,.fa-search:before, .fa-bars:before, #momenu{
+        display: block;
+        font-size: 2.7rem;
+     }
+
+    .mobile, .thietkevungtimkiem, .xsearch{
+        display: none;
+    }
+    .mobile{
+        position: fixed;
+        left: -100rem;
+        background-color: white;
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+        z-index: 5;
+        height: 100%;
+        transition: all 0.3s ease;
+    }
+    
+    .thietkevungtimkiem{
+        padding: 0.9rem 2.5rem;
+        background-color: white;
+        position: absolute;
+        left: 0;
+        z-index: 5;
+    }
+    
+    .thietkedanhmuc{
+        position: absolute;
+        left:100rem;
+        z-index: 10;
+    }
+    #menuan a{
+        text-align: center;
+        height: 15%;
+        border: 1px solid rgb(206, 204, 204);
+    }
+    #dangnhap, #tintuc{
+        position: relative;
+        left: 0;
+    }
+
+    .hiddennav {
+        margin:0;
+    }
+    .active{
+        left: 0;
+    }
+
+    #dongvungtimkiem{
+        z-index: 6;
+        position: absolute;
+        left: 90%;
+    }
+    .fa::before{
+        margin-top: 2rem;
+    }
+
+    .logo{
+        position: relative;
+        top: 0.5rem;
+    }
+
+    .giohang{
+        position: relative;
+        top: -0.5rem;
+    }
+    
+}

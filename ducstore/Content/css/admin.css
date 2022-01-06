@@ -1,0 +1,88 @@
+﻿html{
+    font-size: 10px;
+}
+.nopadding{
+    padding: 0 !important;
+}
+body {
+    padding-top: 0;
+    font-size: 16px;
+}
+.flex{
+    display:flex;
+}
+a {
+    text-decoration: none;
+    color: #2F323E;
+}
+    a:hover {
+        text-decoration: none;
+    }
+ul{
+    padding:0;
+}
+li{
+    list-style:none;
+}
+.marginauto {
+    margin: auto;
+}
+
+.navbar{
+    margin-bottom:0;
+}
+.navbar-header {
+    border-bottom: 1px solid gray;
+}
+.navbarbrand img{
+    height: 6.5rem;
+}
+.nav-user {
+    margin-top: 0;
+    background-color: #2F323E;
+    min-height: 66px;
+}
+.user-box{
+    position: absolute;
+    left: 88%;
+    top: 1.5rem;
+
+}
+.nav-user .dropdown-menu {
+    position: absolute;
+    left: 88%;
+    top: 4.5rem;
+}
+.sidebar {
+    min-height: 50rem;
+    width: 18rem;
+    border-bottom: 1px solid gray;
+    border-right: 1px solid gray;
+}
+.sidebar-item{
+
+    padding-top: 1rem ;
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+.main{
+    padding: 1rem;
+}
+th {
+    background-color: #2f323e;
+    color: white;
+}
+.page-tool{
+    margin-bottom: 0.5rem;
+}
+.add-btn {
+    font-size: 18px;
+    padding: 1.3rem;
+    color: white;
+    background: #313F70;
+}
+
+    .add-btn:hover, .add-btn:active {
+        color: white;
+        background: #313F60;
+    }

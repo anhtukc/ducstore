@@ -1,0 +1,64 @@
+﻿@model ducstore.Models.product
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div ng-controller="product" >
+    <div class="product-info marginauto flex col-10 col-s-11">
+        <div class="col-3">
+            <img class="col-12 anhsanpham" src="~/Content/anh/@Model.picture" alt="">
+        </div>
+        <div class="col-12">
+            <div class="product-details col-10">
+                <small>Mã sản phẩm:@Model.productid</small>
+                <h3>@Model.productname</h3>
+
+                @{
+                    if (Model.promotion == 0)
+                    {
+                        <div>
+                            <p>Giá bán: <span class="giaban">@string.Format("{0:###,###,###,000}", @Model.price) đ</span></p>
+                        </div>
+                    }
+                    else
+                    {
+
+                        <div>
+                            <p>Giá gốc: <del>@string.Format("{0:###,###,###,000}", @Model.price)</del>đ</p>
+                            <p>Giá khuyến mại: <span class="price">@string.Format("{0:###,###,###,000}", @Model.promotion) đ</span></p>
+                        </div>
+                    }
+                }
+            </div>
+
+
+            <button  class="buybtn col-10" ng-click="buy('@Model.productid')">Đặt mua</button>
+        </div>
+
+    </div>
+    <div class="product-info marginauto col-10 col-s-11">
+        <h3>Nội dung</h3>
+        <p>@Model.description</p>
+    </div>
+    <div class="product-info marginauto col-10 col-s-11">
+        <h3>Sản phẩm cùng loại</h3>
+        <div class="product col-10">
+
+            <div class='flexwrap col-12' id="">
+                <div class="product-box col-3 col-s-6" ng-repeat="item in relativeproduct track by $index">
+                    <a href="@Url.Action("Details",  "products")/{{item.productid}}">
+                        <img class="pictureproduct col-11 marginauto" src="~/Content/anh/{{item.picture}}" alt="" />
+                        <h5 class="name" href="@Url.Action("Details",  "products")/{{item.productid}}">{{item.productname}}</h5>
+                    </a>
+                    <span class="price"> {{item.price|currency:"":0}}</span>
+                    <span class="sale">{{item.promotion}} %</span>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<link href="~/Content/css/productdetail.css" rel="stylesheet" />

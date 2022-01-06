@@ -1,0 +1,85 @@
+﻿@model IPagedList<ducstore.Models.product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/admin/Views/Shared/_adminlayout.cshtml";
+}
+@using PagedList;
+@using PagedList.Mvc;
+
+
+<div class="main-content">
+    <div class="page-tool">
+        @Html.ActionLink(" Thêm mới", "Create", new { }, new { @class = "btn add-btn fas fa-plus" })
+    </div>
+    <div class="table-function-place">
+        @using (Html.BeginForm("Index", "products", FormMethod.Get))
+        {
+
+            @Html.TextBox("SearchString") <input class="btn search-btn" type="submit" value="Tìm kiếm" />
+
+        }
+    </div>
+    <table class="table">
+        <thead class="thead-dark table-bordered">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().productid)
+                </th>
+
+                <th>
+                    @Html.DisplayNameFor(model => model.First().productname)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().promotion)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().picture)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.First().quantity)
+                </th>
+
+                <th>Chức năng</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.productid)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.productname)
+                </td>
+                <td>
+                    @string.Format("{0:###,###,###,000}", item.promotion)đ
+                </td>
+                <td class="col-2">
+                    <img src="~/Content/anh/@item.picture" style="max-width:12rem;" />
+                </td>
+                <td>
+                    @string.Format("{0:###,###,###,000}", item.price)đ
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.quantity)
+                </td>
+                <td>
+                    @Html.ActionLink(" ", "Edit", new { id = item.productid }, new { @Class = "text-primary btn btn-default  far fa-edit table-button" })
+                    @Html.ActionLink(" ", "Details", new { id = item.productid }, new { @Class = "gray btn btn-default fas fa-info table-button" })
+                    @Html.ActionLink(" ", "Delete", new { id = item.productid }, new { @Class = "text-danger btn btn-default far fa-trash-alt table-button" })
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+    @Html.PagedListPager(Model, page => Url.Action("Index", "products", new { page, searchString = Request.QueryString["searchString"] }),
+                                                                                   new PagedListRenderOptions
+                                                                                        {
+                                                                                      ContainerDivClasses = new string[] { "page-item" }
+                                                                                   })
+</div>    

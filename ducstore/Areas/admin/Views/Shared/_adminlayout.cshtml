@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
+    <link href="~/Content/css/admin.css" rel="stylesheet" />
+
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Content/js/app.js"></script>
+</head>
+
+<body ng-app="myapp">
+        <nav class="navbar top-navbar navbar-expand-md navbar-dark col-12">
+            <div class="navbar-header col-3" >
+                <a class="navbarbrand" href="">
+                    <div class="logo-icon col-10">
+                        <img class="col-6 marginauto" src="~/Content/anh/logo.PNG" />
+                    </div>
+                </a>
+            </div>
+
+            <div class="nav-user"  >
+                <div class="dropdown ">
+                    <button class="user-box btn btn-default dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                       Huu Duc
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="/home/index/">Đăng xuất</a>
+                        
+                    </div>
+                </div>
+
+            </div>
+        </nav>
+
+    <div class="col-lg-12 nopadding flex">
+        <div class="col-lg-2 sidebar nopadding">
+            <div>
+                <nav class="sidebar-nav">                
+                    <ul>
+                        <li class="sidebar-item marginauto">
+                            <a href="@Url.Action("index", "typeproducts")">Loại Sản phẩm</a>
+                        </li>
+                        <li class="sidebar-item marginauto">
+                            <a href="@Url.Action("index", "products")"> Sản phẩm</a>
+                        </li>
+                        <li class="sidebar-item marginauto">
+                            <a href="@Url.Action("index", "providers")">Nhà cung cấp</a>
+                        </li>
+                        <li class="sidebar-item marginauto">
+                            <a href="@Url.Action("index", "customers")">Khách hàng</a>
+                        </li>
+                        <li class="sidebar-item marginauto">
+                            <a href="@Url.Action("index", "employees")">Nhân viên</a>
+                        </li>
+                        <li class="sidebar-item marginauto">
+                            <a href="@Url.Action("index", "receiptbills")">Hóa đơn nhập</a>
+                        </li>
+                        <li class="sidebar-item marginauto">
+                            <a href="@Url.Action("index", "sellbills")">Hóa đơn nhập</a>
+                        </li>
+                        <li class="sidebar-item marginauto">
+                            <a href="@Url.Action("index", "accounts")">Tài khoản</a>
+                        </li>
+                        <li class="sidebar-item marginauto">
+                            <a href="@Url.Action("index", "news")">Tin tức</a>
+                        </li>
+                    </ul>
+                    
+
+                </nav>
+            </div>
+        </div>
+        <div class="col-lg-10  main">
+            @RenderBody();
+        </div>
+    </div>
+
+
+</body>
+</html>
+@Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)

@@ -1,0 +1,29 @@
+﻿@model ducstore.Models.account
+
+@{
+    ViewBag.Title = "signin";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .formsi{
+        margin-top: 4rem;
+        background:white;
+        border:1px solid red;
+        padding: 3.4rem;
+       
+    }
+</style>
+<div class="col-3 marginauto formsi" ng-controller="signin">
+    <div class="form-group">
+        <label>Tài Khoản:</label>
+        <input type="text" ng-model="username"/>
+    </div>
+    <div class="form-group">
+        <label>Mật khẩu:</label>
+        <input type="password" ng-model="password"/>
+    </div>
+    <div class="form-group">
+        <button ng-click="singinadmin()">Đăng nhập</button>
+    </div>
+</div>
+

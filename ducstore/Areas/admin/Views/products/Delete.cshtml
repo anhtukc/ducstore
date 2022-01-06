@@ -1,0 +1,89 @@
+﻿@model ducstore.Models.product
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Areas/admin/Views/Shared/_adminlayout.cshtml";
+}
+
+
+<div class="form-delete">
+    <h3>Bạn có chắc chắn xóa?</h3>
+    <div>
+    
+        <dl class="dl-horizontal">
+                    <dt>
+                @Html.DisplayNameFor(model => model.provider.providername)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.provider.providername)
+            </dd>
+
+                            <dt>
+                @Html.DisplayNameFor(model => model.typeproduct.typeproductname)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.typeproduct.typeproductname)
+            </dd>
+
+                    <dt>
+                @Html.DisplayNameFor(model => model.productname)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.productname)
+            </dd>
+
+                    <dt>
+                @Html.DisplayNameFor(model => model.promotion)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.promotion)
+            </dd>
+
+                    <dt>
+                @Html.DisplayNameFor(model => model.picture)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.picture)
+            </dd>
+
+                    <dt>
+                @Html.DisplayNameFor(model => model.price)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.price)
+            </dd>
+
+                    <dt>
+                @Html.DisplayNameFor(model => model.quantity)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.quantity)
+            </dd>
+
+                    <dt>
+                @Html.DisplayNameFor(model => model.description)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.description)
+            </dd>
+
+            </dl>
+
+        @using (Html.BeginForm()) {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions no-color">
+                 <input type="submit" value="Xóa" class="btn btn-danger" />
+                @Html.ActionLink("Quay lại", "Index", "", new { @class = "btn btn-default" })
+            </div>
+        }
+    </div>
+</div>

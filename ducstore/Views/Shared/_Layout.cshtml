@@ -1,0 +1,126 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link href="~/Content/css/macdinh.css" rel="stylesheet" />
+    <link href="~/Content/css/footer.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+
+</head>
+<body ng-app="myapp">
+    <div class="header" id="header">
+        <nav class="flex navbar">
+            <i id="momenu" class="fa fa-bars col-s-2"></i>
+            <a href="@Url.Action("Index","Home")">
+                <img class="logo col-3 col-s-3" id="logo" src="~/Content/anh/logo.PNG" />
+            </a>
+
+            <div id="menuan" class="mobile col-2 col-s-12">
+                <i id="dongmenu" class="fa fa-close w3-xxlarge "></i>
+                <a class="nav-item catalog hiddennav" href="@Url.Action("Index","products")">
+                    <i id="closecatalog" class=" fa fa-close col-s-2"></i>
+                    <span>Sản phẩm</span>
+                </a>
+
+                <a href="" id="tintuc">
+                    <img src="~/Content/anh/news.png" />
+                    Tin tức
+                </a>
+                <div class="nav-item" id="dangnhap">
+                    <a href="@Url.Action("signin","home")">
+                        <img src="~/Content/anh/user.png" />
+                        Đăng nhập
+                    </a>
+                </div>
+
+            </div>
+            <form action="" id="vungtimkiem" class="thietkevungtimkiem nav-item col-4 flex col-s-12">
+                <input type="search" name="" id="">
+                <button class="timkiembtn" type="submit">
+                    <i class="fas fa-search"></i>
+                    <span>Tìm kiếm</span>
+                </button>
+            </form>
+            <i id="dongvungtimkiem" class="fa fa-close w3-xlarge xsearch"></i>
+            <div class="vunggiohang">
+                <i id="movungtimkiem" class="fa fa-search w3-xlarge"></i>
+                <a href="@Url.Action("Index","shopping")">
+                    <button class="giohang nav-item">
+                        <img src="~/Content/anh/shopping-cart.png" />
+                        <span>Giỏ hàng</span>
+                    </button>
+                </a>
+            </div>
+
+
+        </nav>
+
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+
+    </div>
+    <footer class="col-12 col-s-12">
+        <div class="flex allinfo">
+            <div class="thongtinchung col-3">
+                <h5>Thông tin chung</h5>
+                <div>
+                    <a>Thông tin về cửa hàng</a>
+                </div>
+                <div>
+                    <a>Tin tức</a>
+                </div>
+
+            </div>
+            <div class="chinhsach col-4">
+                <h5>Chính sách chung</h5>
+                <div>
+                    <a>Chính sách bảo hành</a>
+                </div>
+                <div>
+                    <a>Chính sách vận chuyển</a>
+                </div>
+                <div>
+                    <a>Chính sách hàng chính hãng</a>
+                </div>
+            </div>
+            <div class="thongtinlienhe col-5">
+                <div>
+                    <h5>Showroom Hai Bà Trưng</h5>
+                </div>
+                <div>
+                    <span>Địa chỉ:</span>
+                    <span>151 Lê Thanh Nghị - Hai Bà Trưng - Hà Nội</span>
+                </div>
+                <div>
+                    <span>Số điện thoại:</span>
+                    <span>1900.0323 phím 4</span>
+                </div>
+                <div>
+                    <span>Email:</span>
+                    <a href="mailto:ducstore@gmail.com">ducstore@gmail.com</a>
+                </div>
+                <div>
+                    <span>Giờ mở cửa: 8h30 - 19h30 từ thứ 2 đến thứ 6</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
+<script src="~/Scripts/angular.min.js"></script>
+<script src="~/Content/js/app.js"></script>
+<script src="~/Content/js/home.js"></script>
+<script src="~/Content/js/product.js"></script>
+<script src="~/Content/js/search.js"></script>
+<script src="~/Content/js/signin.js"></script>

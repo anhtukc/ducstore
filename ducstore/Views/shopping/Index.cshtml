@@ -1,0 +1,91 @@
+﻿@model IEnumerable<ducstore.Models.sellbill>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+<style>
+    .quantity{
+        display:flex;
+    }
+    .customer input{
+        width: 40rem;
+    }
+</style>
+
+<div class="main-content" ng-controller="product">
+    <div >
+        
+        <div class="col-11 marginauto bag" id="shoppingbag">
+
+            <div style="border-bottom: 1px solid gray">          
+                <table id="productinshoppingbag" class="table" >
+                    <thead class="table-dark">
+                        <tr>
+                            <th>Ảnh</th>
+                        <th>Tên</th>
+                        <th>Số lượng</th>
+                        <th>Giá bán</th>
+                        <th>Thành tiền</th>
+                        </tr>
+
+                    </thead>
+                    <tbody>
+                        <tr ng-repeat="item in shoppingproduct track by $index">
+                            <td class="col-2">
+
+                                <img class="col-8" src="/Content/anh/{{item.picture}}" alt="">
+
+                            </td>
+                            <td class="col-3">
+                                <a href="" class="inlineblock name">
+                                    <p> {{item.productname}}</p>
+                                </a>
+                            </td>
+                            <td class="quantity">
+                                <button ng-click="ChangeQuantity(item.productid, -1)">-</button>
+                                <input type="number" class="quatity" value="{{item.quantity}}" disabled style="width: 12rem">
+                                <button ng-click="ChangeQuantity(item.productid, 1)">+</button>
+                            </td>
+                            <td>
+                                <span class="sellprice"> {{item.price}}đ</span>
+                            </td>
+                            <td>
+                                <input type="number" class="grandprice" value="{{item.grandpaid}}" style="width: 12rem" disabled>
+                            </td>
+                            <td>
+                                <button class="text-danger far fa-trash-alt table-button btn btn-default" ng-click="DeleteItem(item.productid)"></button>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+                <div class="col-12 total" ng-init="CaculateTotalprice()">
+
+                    <span class="text-lg-right">Tổng tiền: <span id="totalpaid">{{totalprice}}đ</span> </span>
+
+                </div>
+            </div>
+            <form class="col-12 customer">
+                <div class="form-group ">
+                    <label class="col-2">Họ tên:</label>
+                    <input class="col-12" type="text" id="name" ng-model="user.name" required >
+                </div>
+                <div class="form-group">
+                    <label class="col-2">Số điện thoại:</label>
+                    <input type="number" class="col-12" id="phonenumber" ng-model="user.phonenumber" required>
+                </div>
+                <div class="form-group">
+                    <label class="col-2">Địa chỉ:</label>
+                    <input name="" id="address" ng-model="user.address" required/>
+                </div>
+                
+                <div class="form-group">
+                    <button class=" btn btn-primary" ng-click="OrderBuy()">Đặt mua</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>    

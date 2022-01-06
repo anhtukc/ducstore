@@ -1,0 +1,153 @@
+
+   .main{
+        overflow: hidden;
+        border:0.01rem solid rgb(194, 194, 194);
+        
+   }
+   
+   .newplace{
+       position: relative;
+   }
+    .newimage{
+        height: 50rem;
+        z-index: 1;
+    }
+
+    .vungchuasanpham{
+        height: 40rem;
+        width: 100%;       
+        position: relative;
+        margin-bottom: 15rem;
+        background-color: #ffffff;
+    }
+    
+    .vungthongtinsanpham {
+        display: inline-block;
+        position: relative;
+        border: 2px solid rgb(163, 163, 163);
+        background-color: white;
+        padding: 1.5rem 2rem;
+        transition: all 0.3s ease;
+    }
+    
+    .buybutton{
+        height: 3rem;
+        font-size: 1.8rem;
+        background-color: #34b9e9;
+        border:1px solid transparent;
+        color: white;
+    }
+
+    .buybutton a{
+        color: white;
+    }
+    
+    #productslider{
+        position: absolute;
+        width: 100%;
+        overflow: hidden;
+        left:0;
+    }
+    
+    
+    .controlbtn{
+        padding: 20px 20px;
+        min-width: 50px;
+        border-radius: 2rem;
+        background: rgb(150, 208, 231);
+        color: rgb(255, 255, 255);
+        border: none;
+        font-weight: 600;
+        cursor: pointer;
+        outline: none;
+        position: absolute;
+        top: 45%;
+       font-size: large;
+    }
+    .tensanpham{
+        height: 4.4rem;
+    }
+    .leftbtn{
+        left:-2rem;
+        text-align:end;
+    }
+    .rightbtn{
+        right:-2rem;
+        text-align:start;
+    }
+    .productspecs{
+        display: none;
+    }
+    
+
+    .linhkienmaytinh{
+        height: 35rem;
+        position: relative;
+        border: 2px solid rgb(177, 177, 177);
+        padding: 1rem;
+        min-width: 20%;      
+        margin: 0;
+        position: relative;
+    }
+    
+    .anhlinhkien {
+        display: block;
+        height: 19rem;
+        width: 80%;   
+        margin: auto;
+    }
+    
+    
+
+    
+   
+    
+   
+    @media screen and (max-width:768px) {
+        [class*="col-"]{
+            width: 100%;
+        }
+
+        .flexrow{
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+        .thumbnailimageitem{
+            height: 25rem;
+        }
+        .flexcolumn{
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+        }
+        .thumbnailinfo, .vungthongtinsanpham:hover .productspecs{
+            display: none;
+        }
+        .linhkienmaytinh:hover, .gear:hover, .vungthongtinsanpham:hover{
+            width: 50%;
+        }
+        .product{
+            height: auto;
+        }
+        .vungthongtinsanpham{
+            margin: 0;
+        }
+        #productslider{
+            position: relative;
+        }
+        .vungthongtinsanpham .buybutton{
+            position: absolute;
+            top: 85%;
+            left: 0;
+            width: 100%;
+        }
+
+        .gotopage{
+            margin-left: 30%;
+        }
+        .fa-remove:before, .fa-close:before, .fa-times:before{
+            width: 3rem;
+            height: 3rem;
+        }
+    }

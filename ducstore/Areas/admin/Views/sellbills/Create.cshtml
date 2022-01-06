@@ -1,0 +1,140 @@
+﻿@model ducstore.Models.sellbill
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Areas/admin/Views/Shared/_adminlayout.cshtml";
+}
+
+
+<div class="form-create">
+    <style>
+        .product-create {
+            border: 1px solid gray;
+            margin-top: 1rem;
+            padding: 0.6rem;
+        }
+
+        .input-product {
+            display: inline-block;
+            min-width: 70%;
+            margin: 0.2rem;
+        }
+
+        .customer label {
+            min-width: 8.5%;
+        }
+
+        #name, #phonenumber {
+            display: inline-block;
+            min-width: 70%;
+        }
+
+        #address {
+            display: inline-block;
+            min-width: 98%;
+        }
+
+        .label-product {
+            width: 13%;
+        }
+    </style>
+
+    <div class="form-create col-12" ng-controller="SellBills">
+        <div class="product-create">
+            
+            <div class="form-group">
+                <label class="label-product">Mã sản phẩm: </label>
+                <input type="text" id="product_id" ng-model="productid" class="input-product" ng-change="LogName()">
+                
+            </div>
+            <div class="form-group">
+                <label class="label-product">Tên sản phẩm: </label>
+                <input type="text" ng-model="productname" class="input-product" disabled>
+
+            </div>
+            <div class="form-group">
+                <label class="label-product">Đơn giá:</label>
+                <input type="number" ng-model="price" disabled />
+            </div>
+
+            <div class="form-group">
+                <label class="label-product">Số lượng còn:</label>
+                <input type="number" ng-model="remainingquantity" disabled />
+            </div>
+            <div class="form-group">
+                <label class="label-product">Số lượng mua:</label>
+                <input type="number" ng-model="quantity" />
+            </div>
+            <div class="form-group">
+                <button class="btn btn-primary" ng-click="AddBillDetails()">Thêm</button>
+            </div>
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Mã sản phẩm</th>
+                        <th scope="col">Tên sản phẩm</th>
+                        <th scope="col">Số lượng</th>
+                        <th scope="col">Giá bán</th>
+                        <th scope="col">Thành tiền</th>
+                    </tr>
+                </thead>
+                <tbody ng-repeat="item in Details track by $index">
+                    <tr>
+                        <td>{{item.productid}}</td>
+                        <td scope="row">{{item.productname}}</td>
+                        <td>{{item.quantity}}</td>
+                        <td> {{item.price | currency:'' :0}}đ</td>
+                        <td>{{item.grand_paid| currency:'' :0}}đ</td>
+                        <td><button ng-click="DeleteDetail(item.productid)">Xóa</button></td>
+                    </tr>
+
+                </tbody>
+                <tr>
+                    <td colspan="3"></td>
+                    <td>Tổng tiền</td>
+                    <td>{{totalpaid| currency:'' :0}}đ</td>
+                </tr>
+            </table>
+        </div>
+        <div class="form-horizontal col-12">
+
+            <div class="form-group flex ">
+                <div class="flex customer col-6">
+                    <label for="total" class="col-2">Họ tên:</label>
+                    <div class="col-10">
+                        <input type="text" id="name" ng-model="user.name" />
+                    </div>
+
+                </div>
+                <div class="flex customer col-6">
+                    <label for="total" class="col-4">Số điện thoại:</label>
+                    <div class="col-8">
+                        <input type="text" id="phonenumber" ng-model="user.phonenumber" />
+                    </div>
+
+                </div>
+
+            </div>
+            <div class="form-group flex customer">
+                <label for="total" class="col-1">Địa chỉ:</label>
+                <div class="col-10">
+                    <input type="text" id="address" ng-model="user.address" />
+                </div>
+
+            </div>
+
+            <div class="form-group">
+                <div class="">
+                    <input type="submit" value="Tạo" class="btn btn-primary" ng-click="CreateBill()" />
+                    <input type="submit" value="Làm mới" class="btn btn-primary" ng-click="" />
+                </div>
+            </div>
+        </div>
+
+
+
+    </div>
+
+
+</div>
+<script src="~/Content/js/sellbill.js"></script>
