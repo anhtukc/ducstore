@@ -1,4 +1,4 @@
-namespace ducstore.Models
+﻿namespace ducstore.Models
 {
     using System;
     using System.Collections.Generic;
@@ -14,14 +14,17 @@ namespace ducstore.Models
         {
             sellbilldetails = new HashSet<sellbilldetail>();
         }
-
+        [Display(Name = "Mã hóa đơn")]
         public Guid sellbillid { get; set; }
 
         [Column(TypeName = "date")]
+        [Display(Name = "Ngày tạo")]
         public DateTime? daycreate { get; set; }
 
+        [Display(Name = "Khách hàng")]
         public Guid customerid { get; set; }
 
+        [Display(Name = "Tổng tiền")]
         public int totalpaid { get; set; }
 
         public virtual customer customer { get; set; }

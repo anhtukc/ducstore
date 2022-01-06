@@ -1,4 +1,4 @@
-namespace ducstore.Models
+﻿namespace ducstore.Models
 {
     using System;
     using System.Collections.Generic;
@@ -16,15 +16,20 @@ namespace ducstore.Models
         }
 
         [Key]
+        [Display(Name = "Mã hóa đơn")]
         public Guid receiptid { get; set; }
 
+        [Display(Name = "Nhân viên")]
         public Guid employeeid { get; set; }
 
         [Column(TypeName = "date")]
+        [Display(Name = "Ngày tạo")]
         public DateTime? daycreate { get; set; }
 
+        [Display(Name = "Nhà cung cấp")]
         public Guid providerid { get; set; }
 
+        [Display(Name = "Tổng tiền")]
         public int totalpaid { get; set; }
 
         public virtual employee employee { get; set; }

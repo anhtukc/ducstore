@@ -1,4 +1,4 @@
-namespace ducstore.Models
+﻿namespace ducstore.Models
 {
     using System;
     using System.Collections.Generic;
@@ -17,27 +17,36 @@ namespace ducstore.Models
         }
 
         [StringLength(50)]
+        [Display(Name = "Mã sản phẩm")]
         public string productid { get; set; }
 
         [StringLength(50)]
+        [Display(Name = "Mã loại sản phẩm")]
         public string typeproductid { get; set; }
 
+        [Display(Name = "Mã nhà cung cấp")]
         public Guid? providerid { get; set; }
 
         [Required]
         [StringLength(200)]
+        [Display(Name = "Tên sản phẩm")]
         public string productname { get; set; }
 
+        [Display(Name = "Giá khuyến mãi")]
         public int promotion { get; set; }
 
         [Required]
         [StringLength(100)]
+        [Display(Name = "Ảnh")]
         public string picture { get; set; }
 
+        [Display(Name = "Giá bán")]
         public int price { get; set; }
 
+        [Display(Name = "Số lượng")]
         public int quantity { get; set; }
 
+        [Display(Name = "Miêu tả")]
         public string description { get; set; }
 
         public virtual provider provider { get; set; }

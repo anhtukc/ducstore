@@ -16,10 +16,12 @@ namespace ducstore.Models
         }
 
         [StringLength(50)]
+        [Display(Name = "Mã lo?i s?n ph?m")]
         public string typeproductid { get; set; }
 
         [Required]
         [StringLength(200)]
+        [Display(Name = "Tên lo?i s?n ph?m")]
         public string typeproductname { get; set; }
 
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
